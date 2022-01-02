@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { HorizontalFoodCard, VerticalFoodCard } from '../../components';
 import { FONTS, SIZES, icons, dummyData, COLORS } from '../../constants';
+import FilterModal from './FilterModal';
 
 export interface MenuListInterface {
     id: number;
@@ -40,52 +41,13 @@ const Section = ({ title, onPress, children }: { title: string, onPress: () => v
                 </TouchableOpacity>
             </View>
 
-            {/* Conten */}
+            {/* Content */}
             {children}
         </View>
     )
 }
 
-const renderSearch = () => {
-    return (
-        <View
-            style={{
-                flexDirection: 'row',
-                height: 40,
-                alignItems: 'center',
-                marginHorizontal: SIZES.padding,
-                marginVertical: SIZES.base,
-                paddingHorizontal: SIZES.radius,
-                borderRadius: SIZES.radius,
-                backgroundColor: COLORS.lightGray2
-            }}
-        >
-            {/* Icon */}
-            <Image 
-                source={icons.search}
-                style={{ height: 20, width: 20, tintColor: COLORS.black }}
-            />
 
-            {/* TextInput */}
-            <TextInput 
-                style={{
-                    flex: 1,
-                    marginLeft: SIZES.radius,
-                    ...FONTS.body3
-                }}            
-                placeholder='search food...'
-            />
-
-            {/* Filter button */}
-            <TouchableOpacity>
-                <Image 
-                    source={icons.filter}
-                    style={{ height: 20, width: 20, tintColor: COLORS.black }}
-                />
-            </TouchableOpacity>
-        </View>
-    )
-}
 
 const Home = () => {
     const [selectedCategoryId, setSelectedCategoryId] = useState(1);
@@ -93,6 +55,7 @@ const Home = () => {
     const [menuList, setMenuList] = useState<MenuListInterface[] | undefined>([]);
     const [recommend, setRecommend] = useState<MenuListInterface[] | undefined>([]);
     const [popular, setPopular] = useState<MenuListInterface[] | undefined>([]);
+    const [showFilterModal, setShowFilterModal] = useState(false);
 
 
     useEffect(() => {
@@ -117,6 +80,49 @@ const Home = () => {
 
         // Set the menu based on the category id
         setMenuList(seledctedMenu?.list.filter(a => a.categories.includes(categoryId)));
+    }
+
+    const renderSearch = () => {
+        return (
+            <View
+                style={{
+                    flexDirection: 'row',
+                    height: 40,
+                    alignItems: 'center',
+                    marginHorizontal: SIZES.padding,
+                    marginVertical: SIZES.base,
+                    paddingHorizontal: SIZES.radius,
+                    borderRadius: SIZES.radius,
+                    backgroundColor: COLORS.lightGray2
+                }}
+            >
+                {/* Icon */}
+                <Image 
+                    source={icons.search}
+                    style={{ height: 20, width: 20, tintColor: COLORS.black }}
+                />
+    
+                {/* TextInput */}
+                <TextInput 
+                    style={{
+                        flex: 1,
+                        marginLeft: SIZES.radius,
+                        ...FONTS.body3
+                    }}            
+                    placeholder='search food...'
+                />
+    
+                {/* Filter button */}
+                <TouchableOpacity
+                    onPress={() => setShowFilterModal(true)}
+                >
+                    <Image 
+                        source={icons.filter}
+                        style={{ height: 20, width: 20, tintColor: COLORS.black }}
+                    />
+                </TouchableOpacity>
+            </View>
+        )
     }
 
     const renderMenuTypes = () => {
@@ -247,12 +253,43 @@ const Home = () => {
         )
     }
 
+    const renderDeliveryTo = () => {
+        return (
+            <View
+                style={{
+                    marginTop: SIZES.padding,
+                    marginHorizontal: SIZES.padding
+                }}
+            >
+                <Text style={{ color: COLORS.primary, ...FONTS.body3 }}>DELIVERY TO</Text>
+                <TouchableOpacity
+                    style={{
+                        flexDirection: 'row',
+                        marginTop: SIZES.base,
+                        alignItems: 'center'
+                    }}
+                >
+                    <Text style={{ ...FONTS.h3 }}>{dummyData.myProfile.address}</Text>
+                    <Image source={icons.down_arrow} style={{ marginLeft: SIZES.base, height: 20, width: 20 }} />
+                </TouchableOpacity>
+            </View>
+        )
+    }
+
     return (
         <View
             style={{ flex: 1 }}
         >
             {/* Search section */}
             {renderSearch()}
+
+            {/* Filter */}
+            {showFilterModal &&
+                <FilterModal 
+                    isVisible={showFilterModal}
+                    onClose={() => setShowFilterModal(false)}
+                />
+            }
 
             {/* List section */}
             <FlatList 
@@ -280,6 +317,9 @@ const Home = () => {
                 }}  
                 ListHeaderComponent={
                     <View>
+                        {/* Delivery to section */}
+                        {renderDeliveryTo()}
+
                         {/* Food Category */}
                         {renderFoodCategories()}
 
@@ -292,6 +332,9 @@ const Home = () => {
                         {/* Menu Type */}
                         {renderMenuTypes()}
                     </View>
+                }
+                ListFooterComponent={
+                    <View style={{ height: 200 }} />
                 }
             />
         </View>
