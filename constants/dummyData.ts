@@ -1,9 +1,9 @@
 import { icons, images } from ".";
 
 const myProfile = {
-    name: "ByProgrammers",
+    name: "Michael Abiona",
     profile_image: images.profile,
-    address: "No. 88, Jln Padungan, Kuching"
+    address: "No. 9, Amos Adeniji, Lagos"
 }
 
 const categories = [
