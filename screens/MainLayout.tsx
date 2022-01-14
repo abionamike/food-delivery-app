@@ -1,7 +1,6 @@
 import { DrawerNavigationHelpers } from '@react-navigation/drawer/lib/typescript/src/types';
 import { RouteProp } from '@react-navigation/native';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import React, { LegacyRef, MutableRefObject, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
     View,
     Text,
@@ -15,7 +14,6 @@ import {
 } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { Home, Search, CartTab, Favourite, Notification } from '.';
-import { RootStackParamList } from '../App';
 import { Header } from '../components';
 import { COLORS, FONTS, SIZES, dummyData, constants, icons } from '../constants';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';

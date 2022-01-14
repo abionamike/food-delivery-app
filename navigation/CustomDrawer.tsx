@@ -1,17 +1,13 @@
 import { createDrawerNavigator, DrawerContentScrollView } from '@react-navigation/drawer'
 import { DrawerNavigationHelpers } from '@react-navigation/drawer/lib/typescript/src/types'
-import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import React, { useState } from 'react'
-import { View, Text, Image, TouchableOpacity, ImageSourcePropType, ColorPropType } from 'react-native'
+import { View, Text, Image, TouchableOpacity, ImageSourcePropType } from 'react-native'
 import Animated from 'react-native-reanimated'
 import { RootStackParamList } from '../App'
 import { COLORS, FONTS, SIZES, constants, dummyData, icons } from '../constants'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
-import { AppDispatch, RootState } from '../redux/store'
 import { setSelectedTab } from '../redux/tab/tabSlice'
 import { MainLayout } from '../screens'
-
-type Prop = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 const Drawer = createDrawerNavigator();
 
