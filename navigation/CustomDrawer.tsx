@@ -122,7 +122,7 @@ const CustomDrawerContent = ({ navigation }: { navigation: DrawerNavigationHelpe
             marginBottom: SIZES.padding,
           }}
         >
-          <CustomDrawerItem label={"Logout"} icon={icons.logout} />
+          <CustomDrawerItem label={"Logout"} icon={icons.logout} onPress={() => navigation.navigate("SignIn")} />
         </View>
       </View>
     </DrawerContentScrollView>

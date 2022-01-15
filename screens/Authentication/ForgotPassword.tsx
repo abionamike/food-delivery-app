@@ -2,15 +2,13 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
 import {
     View,
-    Text,
-    TouchableOpacity,
     Image
 } from 'react-native';
 
 import { AuthLayout } from '..';
 import { RootStackParamList } from '../../App';
 import { FormInput, TextButton } from '../../components';
-import { FONTS, SIZES, COLORS, icons } from '../../constants';
+import { SIZES, COLORS, icons } from '../../constants';
 import { utils } from '../../utils';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'SignUp'>;

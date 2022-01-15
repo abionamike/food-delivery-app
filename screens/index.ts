@@ -14,11 +14,23 @@ import Favourite from "./Favourite/Favourite";
 
 // Notification
 import Notification from "./Notification/Notification"
+
+// AuthLayout
 import AuthLayout from "./Authentication/AuthLayout";
+
+// ForgotPassword
 import ForgotPassword from "./Authentication/ForgotPassword";
+
+// Otp
 import Otp from "./Authentication/Otp";
+
+// SignIn
 import SignIn from "./Authentication/SignIn";
+
+// SignUp
 import SignUp from "./Authentication/SignUp";
+
+// OnBoarding
 import OnBoarding from "./OnBoarding/OnBoarding";
 
 
