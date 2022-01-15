@@ -135,7 +135,7 @@ const SignIn = ({ navigation }: Props) => {
                             borderRadius: SIZES.radius,
                             backgroundColor: isEnableSignIn() ? COLORS.primary : COLORS.transparentPrimray
                         }}
-                        onPress={() => console.log('pressed')}
+                        onPress={() => navigation.navigate('Home')}
                     />
 
                     {/* Sign Up */}
