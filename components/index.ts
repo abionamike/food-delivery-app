@@ -1,3 +1,5 @@
+import CustomSwitch from "./CustomSwitch"
+import FormInput from "./FormInput"
 import Header from "./Header"
 import HorizontalFoodCard from "./HorizontalFoodCard"
 import IconButton from "./IconButton"
@@ -13,5 +15,7 @@ export {
   IconButton,
   TwoPointSlider,
   TextButton,
-  TextIconButton
+  TextIconButton,
+  FormInput,
+  CustomSwitch
 }

@@ -1,17 +1,18 @@
 import React from 'react'
-import { TouchableOpacity, Text, Image, StyleProp, ViewStyle, TextStyle, ImageStyle, ImageSourcePropType } from 'react-native'
+import { TouchableOpacity, Text, Image, StyleProp, ViewStyle, TextStyle, ImageStyle, ImageSourcePropType, StyleSheet } from 'react-native'
 import { COLORS, FONTS } from '../constants'
 
 interface TextIconButtonInterface { 
   containerStyle: StyleProp<ViewStyle>, 
-  label: number, 
+  label: number | string, 
   labelStyle: StyleProp<TextStyle>, 
   icon: ImageSourcePropType, 
-  iconStyle: StyleProp<ImageStyle>, 
+  iconPosition?: "LEFT" | "RIGHT",
+  iconStyle?: StyleProp<ImageStyle>, 
   onPress: () => void 
 }
 
-const TextIconButton = ({ containerStyle, label, labelStyle, icon, iconStyle, onPress }: TextIconButtonInterface) => {
+const TextIconButton = ({ containerStyle, label, labelStyle, icon, iconPosition, iconStyle, onPress }: TextIconButtonInterface) => {
   return (
     <TouchableOpacity
       style={[{
@@ -21,6 +22,13 @@ const TextIconButton = ({ containerStyle, label, labelStyle, icon, iconStyle, on
       }, containerStyle]}
       onPress={onPress}
     >
+      {iconPosition === "LEFT" &&
+        <Image 
+          source={icon}
+          style={[styles.image, iconStyle]}
+        />
+      }
+
       <Text
         style={[{
           ...FONTS.body3
@@ -28,17 +36,31 @@ const TextIconButton = ({ containerStyle, label, labelStyle, icon, iconStyle, on
       >
         {label}
       </Text>
-      <Image 
-        source={icon}
-        style={[{
-          marginLeft: 5,
-          width: 20,
-          height: 20,
-          tintColor: COLORS.black
-        }, iconStyle]}
-      />
+
+      {!iconPosition &&
+        <Image 
+          source={icon}
+          style={[styles.image, iconStyle]}
+        />
+      }
+
+      {iconPosition === "RIGHT" &&
+        <Image 
+          source={icon}
+          style={[styles.image, iconStyle]}
+        />
+      }
     </TouchableOpacity>
   )
 }
+
+const styles = StyleSheet.create({
+  image: {
+    marginLeft: 3,
+    width: 20,
+    height: 20,
+    tintColor: COLORS.black
+  }
+})
 
 export default TextIconButton

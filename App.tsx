@@ -5,11 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import CustomDrawer from "./navigation/CustomDrawer";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import OnBoarding from "./screens/OnBoarding/OnBoarding";
-import SignIn from "./screens/Authentication/SignIn";
-import SignUp from "./screens/Authentication/SignUp";
-import ForgotPassword from "./screens/Authentication/ForgotPassword";
-import Otp from "./screens/Authentication/Otp";
+import { ForgotPassword, OnBoarding, Otp, SignIn, SignUp } from "./screens";
 
 export type RootStackParamList = {
     OnBoarding: undefined;
