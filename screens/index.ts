@@ -7,7 +7,7 @@ import Home from "./Home/Home"
 import Search from "./Search/Search";
 
 // Cart
-import CartTab from "./Cart/CartTab"
+import MyCart from "./Cart/MyCart"
 
 // Favourite
 import Favourite from "./Favourite/Favourite";
@@ -40,7 +40,7 @@ export {
     MainLayout,
     Home,
     Search,
-    CartTab,
+    MyCart,
     Favourite,
     Notification,
     AuthLayout,

@@ -4,6 +4,7 @@ const cross = require("../assets/icons/cross.png")
 const correct = require("../assets/icons/correct.png")
 const cart = require("../assets/icons/cart.png")
 const clock = require("../assets/icons/clock.png")
+const delete_icon = require("../assets/icons/delete.png")
 const dollar = require("../assets/icons/dollar.png")
 const eye = require("../assets/icons/eye.png")
 const eye_close = require("../assets/icons/eye_close.png")
@@ -39,6 +40,7 @@ export default {
     correct,
     cart,
     clock,
+    delete_icon,
     dollar,
     eye,
     eye_close,

@@ -250,7 +250,7 @@ const FoodDetails = ({ route, navigation }: Props) => {
           }}
           label='Buy Now'
           label2={quantity > 1 ? `-  $${(quantity * 15.99).toFixed(2)}` : '-  $15.99'}
-          onPress={() => console.log('pressed')}
+          onPress={() => navigation.navigate("MyCart")}
         />
       </View>
     )

@@ -13,7 +13,7 @@ import {
     ViewStyle
 } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
-import { Home, Search, CartTab, Favourite, Notification } from '.';
+import { Home, Search, MyCart, Favourite, Notification } from '.';
 import { Header } from '../components';
 import { COLORS, FONTS, SIZES, dummyData, constants, icons } from '../constants';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
@@ -280,7 +280,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation }: MainLayoutProps) => {
                             <View style={{ height: SIZES.height, width: SIZES.width }}>
                                 {item.label === constants.screens.home && <Home navigation={navigation} />}
                                 {item.label === constants.screens.search && <Search />}
-                                {item.label === constants.screens.cart && <CartTab />}
+                                {item.label === constants.screens.cart && <MyCart navigation={navigation} />}
                                 {item.label === constants.screens.favourite && <Favourite />}
                                 {item.label === constants.screens.notification && <Notification />}
                             </View>
