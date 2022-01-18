@@ -1,3 +1,4 @@
+import { DrawerNavigationHelpers } from '@react-navigation/drawer/lib/typescript/src/types';
 import React, { useEffect, useState } from 'react';
 import {
     View,
@@ -21,6 +22,7 @@ export interface MenuListInterface {
     isFavourite: boolean;
     image: any;
 };
+
 
 const Section = ({ title, onPress, children }: { title: string, onPress: () => void, children: JSX.Element }) => {
     return (
@@ -47,9 +49,7 @@ const Section = ({ title, onPress, children }: { title: string, onPress: () => v
     )
 }
 
-
-
-const Home = () => {
+const Home = ({ navigation }: { navigation: DrawerNavigationHelpers }) => {
     const [selectedCategoryId, setSelectedCategoryId] = useState(1);
     const [selectedMenuType, setSelectedMenuType] = useState(1);
     const [menuList, setMenuList] = useState<MenuListInterface[] | undefined>([]);
@@ -59,7 +59,7 @@ const Home = () => {
 
 
     useEffect(() => {
-        handleChangeCategory(selectedCategoryId, selectedMenuType)
+        handleChangeCategory(selectedCategoryId, selectedMenuType);
     }, []);
 
     const handleChangeCategory = (categoryId: number, menuTypeId: number) => {
@@ -192,7 +192,7 @@ const Home = () => {
         if(!popular) return <></>
 
         return (
-            <Section title='Popular Near You' onPress={() => console.log('show all opular items')}>
+            <Section title='Popular Near You' onPress={() => console.log('show all popular items')}>
                 <FlatList 
                     data={popular}
                     keyExtractor={item => `${item.id}`}
@@ -206,7 +206,7 @@ const Home = () => {
                                 padding: 18
                             }}
                             item={item}
-                            onPress={() => console.log('Vertical Food Card')}
+                            onPress={() => navigation.navigate("FoodDetails", { item })}
                         />
                     )}
                 />

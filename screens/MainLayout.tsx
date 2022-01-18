@@ -19,8 +19,8 @@ import { COLORS, FONTS, SIZES, dummyData, constants, icons } from '../constants'
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { setSelectedTab } from '../redux/tab/tabSlice';
 import LinearGradient from 'react-native-linear-gradient';
-
-// type Main = NativeStackScreenProps<RootStackParamList, 'Home'>;
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../App';
 
 // type ProfileScreenNavigationProp = Main['navigation'];
 
@@ -278,7 +278,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation }: MainLayoutProps) => {
                     renderItem={({ item, index }) => {
                         return (
                             <View style={{ height: SIZES.height, width: SIZES.width }}>
-                                {item.label === constants.screens.home && <Home />}
+                                {item.label === constants.screens.home && <Home navigation={navigation} />}
                                 {item.label === constants.screens.search && <Search />}
                                 {item.label === constants.screens.cart && <CartTab />}
                                 {item.label === constants.screens.favourite && <Favourite />}

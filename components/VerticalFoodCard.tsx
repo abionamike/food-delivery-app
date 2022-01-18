@@ -19,6 +19,7 @@ const VerticalFoodCard = ({ containerStyle, item, onPress }: VerticalFoodCardInt
         borderRadius: SIZES.radius,
         backgroundColor: COLORS.lightGray2
       }]}
+      onPress={onPress}
     >
       {/* Caloreis & favourite */}
       <View style={{ flexDirection: 'row' }}>

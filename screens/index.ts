@@ -33,7 +33,8 @@ import SignUp from "./Authentication/SignUp";
 // OnBoarding
 import OnBoarding from "./OnBoarding/OnBoarding";
 
-
+// FoodDetails
+import FoodDetails from "./Food/FoodDetails";
 
 export {
     MainLayout,
@@ -47,5 +48,6 @@ export {
     Otp,
     SignIn,
     SignUp,
-    OnBoarding
+    OnBoarding,
+    FoodDetails
 }

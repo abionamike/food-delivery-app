@@ -1,3 +1,4 @@
+import CartQunatityButton from "./CartQunatityButton"
 import CustomSwitch from "./CustomSwitch"
 import FormInput from "./FormInput"
 import Header from "./Header"
@@ -7,6 +8,10 @@ import TextButton from "./TextButton"
 import TextIconButton from "./TextIconButton"
 import TwoPointSlider from "./TwoPointSlider"
 import VerticalFoodCard from "./VerticalFoodCard"
+import IconLabel from "./IconLabel"
+import LineDivider from "./LineDivider"
+import Rating from "./Rating"
+import StepperInput from "./StepperInput"
 
 export {
   Header,
@@ -17,5 +22,10 @@ export {
   TextButton,
   TextIconButton,
   FormInput,
-  CustomSwitch
+  CustomSwitch,
+  CartQunatityButton,
+  IconLabel,
+  LineDivider,
+  Rating,
+  StepperInput
 }

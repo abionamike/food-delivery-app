@@ -1,18 +1,19 @@
 import React from 'react'
-import { View, Text, StyleProp, ViewStyle } from 'react-native'
+import { View, Text, StyleProp, ViewStyle, TextStyle } from 'react-native'
 import { FONTS } from '../constants'
 
 interface HeaderProp { 
   containerStyle: StyleProp<ViewStyle>, 
   title: string,
+  titleStyle?: StyleProp<TextStyle>,
   leftComponent: JSX.Element,
   rightComponent: JSX.Element
 }
 
-const Header = ({ containerStyle, title, leftComponent, rightComponent }: HeaderProp) => {
+const Header = ({ containerStyle, title, titleStyle, leftComponent, rightComponent }: HeaderProp) => {
   return (
     <View
-      style={[containerStyle, { flexDirection: 'row' }]}
+      style={[{ height: 60, flexDirection: 'row' }, containerStyle]}
     >
       {/* Left */}
       {leftComponent}
@@ -21,7 +22,7 @@ const Header = ({ containerStyle, title, leftComponent, rightComponent }: Header
       <View 
         style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
       >
-        <Text style={{ ...FONTS.h3 }}>{title}</Text>
+        <Text style={[{ ...FONTS.h3 }, titleStyle]}>{title}</Text>
       </View>
 
       {/* Right */}

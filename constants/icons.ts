@@ -1,13 +1,18 @@
+const back = require("../assets/icons/back.png")
 const coupon = require("../assets/icons/coupon.png")
 const cross = require("../assets/icons/cross.png")
 const correct = require("../assets/icons/correct.png")
 const cart = require("../assets/icons/cart.png")
+const clock = require("../assets/icons/clock.png")
+const dollar = require("../assets/icons/dollar.png")
 const eye = require("../assets/icons/eye.png")
 const eye_close = require("../assets/icons/eye_close.png")
 const menu = require("../assets/icons/menu.png")
+const minus = require("../assets/icons/minus.png")
 const search = require("../assets/icons/search.png")
 const fb = require("../assets/icons/fb.png")
 const google = require("../assets/icons/google.png")
+const plus = require("../assets/icons/plus.png")
 const filter = require("../assets/icons/filter.png")
 const down_arrow = require("../assets/icons/down_arrow.png")
 const favourite = require("../assets/icons/favourite.png")
@@ -20,6 +25,7 @@ const home = require("../assets/icons/home.png")
 const location = require("../assets/icons/location.png")
 const logout = require("../assets/icons/logout.png")
 const notification = require("../assets/icons/notification.png")
+const paypal = require("../assets/icons/paypal.png")
 const profile = require("../assets/icons/profile.png")
 const setting = require("../assets/icons/setting.png")
 const star = require("../assets/icons/star.png")
@@ -27,10 +33,13 @@ const wallet = require("../assets/icons/wallet.png")
 const help = require("../assets/icons/help.png")
 
 export default {
+    back,
     coupon,
     cross,
     correct,
     cart,
+    clock,
+    dollar,
     eye,
     eye_close,
     menu,
@@ -38,6 +47,8 @@ export default {
     fb,
     google,
     filter,
+    paypal,
+    plus,
     down_arrow,
     favourite,
     burger,
@@ -48,6 +59,7 @@ export default {
     home,
     location,
     logout,
+    minus,
     notification,
     profile,
     setting,
