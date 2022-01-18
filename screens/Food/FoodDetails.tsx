@@ -244,12 +244,12 @@ const FoodDetails = ({ route, navigation }: Props) => {
             flexDirection: 'row',
             height: 60,
             marginLeft: SIZES.radius,
-            paddingHorizontal: SIZES.radius,
+            paddingHorizontal: SIZES.padding,
             borderRadius: SIZES.radius,
             backgroundColor: COLORS.primary
           }}
           label='Buy Now'
-          label2={quantity > 1 ? `$${(quantity * 15.99).toFixed(2)}` : '$15.99'}
+          label2={quantity > 1 ? `-  $${(quantity * 15.99).toFixed(2)}` : '-  $15.99'}
           onPress={() => console.log('pressed')}
         />
       </View>
