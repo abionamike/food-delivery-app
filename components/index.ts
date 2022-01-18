@@ -12,6 +12,7 @@ import IconLabel from "./IconLabel"
 import LineDivider from "./LineDivider"
 import Rating from "./Rating"
 import StepperInput from "./StepperInput"
+import FooterTotal from "./FooterTotal"
 
 export {
   Header,
@@ -27,5 +28,6 @@ export {
   IconLabel,
   LineDivider,
   Rating,
-  StepperInput
+  StepperInput,
+  FooterTotal
 }

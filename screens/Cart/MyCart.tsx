@@ -10,7 +10,7 @@ import {
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SwipeListView } from 'react-native-swipe-list-view';
 import { RootStackParamList } from '../../App';
-import { Header, IconButton, CartQunatityButton, StepperInput } from '../../components';
+import { Header, IconButton, CartQunatityButton, StepperInput, FooterTotal } from '../../components';
 import { FONTS, SIZES, icons, dummyData, COLORS } from '../../constants';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'MyCart'>;
@@ -24,7 +24,7 @@ const CartTab = ({ navigation }: { navigation: DrawerNavigationHelpers }) => {
         setMyCartList(newMyCartList)
     }
 
-    const removeMyCartHandler = (id) => {
+    const removeMyCartHandler = (id: number) => {
         let newMyCartList = [...myCartList];
 
         const index = newMyCartList.findIndex(cart => cart.id === id);
@@ -157,6 +157,12 @@ const CartTab = ({ navigation }: { navigation: DrawerNavigationHelpers }) => {
             {renderCartList()}
 
             {/* Footer */}
+            <FooterTotal 
+                subTotal={37.97}
+                shippingFee={0.00}
+                total={37.97}
+                onPress={() => console.log('pressed')}
+            />
         </View>
     )
 }
