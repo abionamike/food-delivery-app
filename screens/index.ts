@@ -9,6 +9,9 @@ import Search from "./Search/Search";
 // Cart
 import MyCart from "./Cart/MyCart"
 
+//MyCard
+import MyCard from "./Card/MyCard"
+
 // Favourite
 import Favourite from "./Favourite/Favourite";
 
@@ -41,6 +44,7 @@ export {
     Home,
     Search,
     MyCart,
+    MyCard,
     Favourite,
     Notification,
     AuthLayout,

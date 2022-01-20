@@ -9,11 +9,8 @@ import {
 } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SwipeListView } from 'react-native-swipe-list-view';
-import { RootStackParamList } from '../../App';
 import { Header, IconButton, CartQunatityButton, StepperInput, FooterTotal } from '../../components';
 import { FONTS, SIZES, icons, dummyData, COLORS } from '../../constants';
-
-type Props = NativeStackScreenProps<RootStackParamList, 'MyCart'>;
 
 const CartTab = ({ navigation }: { navigation: DrawerNavigationHelpers }) => {
     const [myCartList, setMyCartList] = useState(dummyData.myCart);
@@ -161,7 +158,7 @@ const CartTab = ({ navigation }: { navigation: DrawerNavigationHelpers }) => {
                 subTotal={37.97}
                 shippingFee={0.00}
                 total={37.97}
-                onPress={() => console.log('pressed')}
+                onPress={() => navigation.navigate("MyCard")}
             />
         </View>
     )

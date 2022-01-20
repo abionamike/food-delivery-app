@@ -1,3 +1,4 @@
+const apple = require("../assets/icons/apple.png")
 const back = require("../assets/icons/back.png")
 const coupon = require("../assets/icons/coupon.png")
 const cross = require("../assets/icons/cross.png")
@@ -32,8 +33,14 @@ const setting = require("../assets/icons/setting.png")
 const star = require("../assets/icons/star.png")
 const wallet = require("../assets/icons/wallet.png")
 const help = require("../assets/icons/help.png")
+const mastercard = require("../assets/icons/mastercard.png")
+const visa = require("../assets/icons/visa.png")
+const check_on = require("../assets/icons/check_on.png")
+const check_off = require("../assets/icons/check_off.png")
+const check_circle = require("../assets/icons/check_circle.png")
 
 export default {
+    apple,
     back,
     coupon,
     cross,
@@ -68,4 +75,9 @@ export default {
     star,
     wallet,
     help,
+    mastercard,
+    visa,
+    check_on,
+    check_off,
+    check_circle,
 }
