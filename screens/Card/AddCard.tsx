@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { View, Text, Image, ImageBackground } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { RootStackParamList } from '../../App';
-import { FormInput, Header, IconButton, TextButton } from '../../components';
+import { FormInput, FormInputCheck, Header, IconButton, RadioButton, TextButton } from '../../components';
 import { SIZES, COLORS, icons, images, FONTS } from '../../constants';
 import { utils } from '../../utils';
 
@@ -22,6 +22,10 @@ const AddCard = ({ route, navigation }: Props) => {
   const [cvv, setCvv] = useState('');
   const [cvvErr, setCvvErr] = useState('');
   const [isRemeber, setIsRemeber] = useState(false);
+
+  const isEnableAddCard = () => {
+    return cardName !== "" && cardNumber !== "" && expiryDate !== "" && cvv !== "" && cardNumberErr === "" && cardNameErr === "" && cvvErr === "" && expiryDateErr === "" 
+  }
 
   const renderHeader = () => {
     return (
@@ -121,7 +125,12 @@ const AddCard = ({ route, navigation }: Props) => {
           inputStyle={undefined} 
           placeholder={''} 
           prependComponent={<></>} 
-          appendComponent={<></>} 
+          appendComponent={
+            <FormInputCheck 
+              value={cardNumber}
+              error={cardNumberErr}
+            />
+          } 
           onChange={(value) => {
             setCardNumber(value.replace(/\s/g, '').replace(/(\d{4})/g, '$1 ').trim());
 
@@ -131,6 +140,128 @@ const AddCard = ({ route, navigation }: Props) => {
           autoComplete={undefined} 
           autoCapitalize={undefined} 
           errorMsg={cardNumberErr}        
+        />
+
+        {/* Card Holder Name */}
+        <FormInput 
+          label='Cardholder Name'
+          value={cardName}
+          containerStyle={{
+            marginTop: SIZES.radius
+          }} 
+          inputStyle={undefined} 
+          placeholder={''} 
+          prependComponent={<></>} 
+          appendComponent={
+            <FormInputCheck 
+              value={cardName}
+              error={cardNameErr}
+            />
+          } 
+          onChange={(value) => {
+            utils.validateInput(value, 1, setCardNameErr);
+
+            setCardName(value);
+          }} 
+          secureTextEntry={false} 
+          autoComplete={undefined} 
+          autoCapitalize={undefined} 
+          errorMsg={cardNameErr}        
+        />
+
+        {/* Expiry Date / CVV */}
+        <View style={{ flexDirection: 'row', marginTop: SIZES.radius }}>
+          <FormInput 
+            label='Expiry Date'
+            value={expiryDate}
+            containerStyle={{
+              flex: 1
+            }} 
+            inputStyle={undefined} 
+            placeholder={'MM/YY'} 
+            maxLength={5}
+            prependComponent={<></>} 
+            appendComponent={
+              <FormInputCheck 
+                value={expiryDate}
+                error={expiryDateErr}
+              />
+            } 
+            onChange={(value) => {
+              utils.validateInput(value, 5, setExpiryDateErr);
+
+              setExpiryDate(value);
+            }} 
+            secureTextEntry={false} 
+            autoComplete={undefined} 
+            autoCapitalize={undefined} 
+            errorMsg={''}        
+          />
+
+          <FormInput 
+            label='CVV'
+            value={cvv}
+            containerStyle={{
+              flex: 1,
+              marginLeft: SIZES.radius
+            }} 
+            inputStyle={undefined} 
+            placeholder={''} 
+            maxLength={3}
+            prependComponent={<></>} 
+            appendComponent={
+              <FormInputCheck 
+                value={cvv}
+                error={cvvErr}
+              />
+            } 
+            onChange={(value) => {
+              utils.validateInput(value, 3, setCvvErr);
+
+              setCvv(value);
+            }} 
+            secureTextEntry={false} 
+            autoComplete={undefined} 
+            autoCapitalize={undefined} 
+            errorMsg={''}        
+          />
+        </View>
+
+        {/* Remember section */}
+        <View
+          style={{
+            alignItems: 'flex-start',
+            marginTop: SIZES.padding
+          }}
+        >
+          <RadioButton 
+            label='Remember this card details.'
+            isSelected={isRemeber}
+            onPress={() => setIsRemeber(!isRemeber)}
+          />
+        </View>
+      </View>
+    )
+  }
+
+  const renderFooter = () => {
+    return (
+      <View
+        style={{
+          paddingTop: SIZES.radius,
+          paddingBottom: SIZES.padding,
+          paddingHorizontal: SIZES.padding
+        }}
+      >
+        <TextButton 
+          disabled={!isEnableAddCard()}
+          label='Add Card'
+          buttonContainerStyle={{
+            height: 60,
+            borderRadius: SIZES.radius,
+            backgroundColor: isEnableAddCard() ? COLORS.primary : COLORS.transparentPrimray 
+          }}
+          onPress={() => navigation.goBack()}
         />
       </View>
     )
@@ -157,6 +288,7 @@ const AddCard = ({ route, navigation }: Props) => {
       </KeyboardAwareScrollView>}
 
       {/* Footer */}
+      {renderFooter()}
     </View>
   )
 }

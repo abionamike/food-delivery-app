@@ -13,7 +13,7 @@ interface FormInputInteface {
   appendComponent: JSX.Element, 
   onChange: (arg0: string) => void, 
   secureTextEntry: boolean,  
-  keyboardType: KeyboardTypeOptions | undefined,
+  keyboardType?: KeyboardTypeOptions | undefined,
   autoComplete: | 'birthdate-day'
   | 'birthdate-full'
   | 'birthdate-month'
