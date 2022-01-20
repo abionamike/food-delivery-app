@@ -4,7 +4,7 @@ import { View, Text, ScrollView, ImageSourcePropType } from 'react-native'
 import { Header, IconButton, TextButton, CardItem } from '../../components'
 import { FONTS, SIZES, COLORS, icons, dummyData } from '../../constants'
 
-interface ItemProp {
+export interface ItemProp {
   id: number;
   name: string;
   icon: ImageSourcePropType;
@@ -94,7 +94,13 @@ const MyCard = ({ navigation }: { navigation: DrawerNavigationHelpers }) => {
             backgroundColor: selectedCard === null ? COLORS.gray : COLORS.primary
           }}
           label={selectedCard?.key === "NewCard" ? "Add" : "Place Your Order"}
-          onPress={() => console.log('pressed')}
+          onPress={() => {
+            if(selectedCard?.key === "NewCard") {
+              navigation.navigate("AddCard", { selectedCard })
+            } else {
+              navigation.navigate("Checkout", { selectedCard })
+            }
+          }}
         />
       </View>
     )

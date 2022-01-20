@@ -5,8 +5,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import CustomDrawer from "./navigation/CustomDrawer";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import { MyCart, FoodDetails, ForgotPassword, OnBoarding, Otp, SignIn, SignUp, MyCard } from "./screens";
+import { MyCart, FoodDetails, ForgotPassword, OnBoarding, Otp, SignIn, SignUp, MyCard, AddCard, Checkout } from "./screens";
 import { MenuListInterface } from "./screens/Home/Home";
+import { ItemProp } from "./screens/Card/MyCard";
 
 export type RootStackParamList = {
     OnBoarding: undefined;
@@ -18,6 +19,8 @@ export type RootStackParamList = {
     FoodDetails: { item: MenuListInterface };
     MyCart: undefined;
     MyCard: undefined;
+    AddCard: { selectedCard: ItemProp };
+    Checkout: { selectedCard: ItemProp };
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -71,6 +74,14 @@ const App = () => {
                     <Stack.Screen
                         name="MyCard"
                         component={MyCard}
+                    />
+                    <Stack.Screen
+                        name="AddCard"
+                        component={AddCard}
+                    />
+                    <Stack.Screen
+                        name="Checkout"
+                        component={Checkout}
                     />
                 </Stack.Navigator>
             </NavigationContainer>

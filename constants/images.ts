@@ -6,6 +6,7 @@ const hot_delivery = require("../assets/images/hot_delivery.png")
 const logo_01 = require("../assets/images/logo_01.png")
 const logo_02 = require("../assets/images/logo_02.png")
 const profile = require("../assets/images/profile.jpeg")
+const card = require("../assets/images/card.png")
 
 export default {
     profile,
@@ -15,5 +16,6 @@ export default {
     great_food,
     hot_delivery,
     logo_01,
-    logo_02
+    logo_02,
+    card
 }

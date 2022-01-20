@@ -39,12 +39,20 @@ import OnBoarding from "./OnBoarding/OnBoarding";
 // FoodDetails
 import FoodDetails from "./Food/FoodDetails";
 
+// AddCard
+import AddCard from "./Card/AddCard";
+
+// Checkout
+import Checkout from "./Cart/Checkout";
+
+
 export {
     MainLayout,
     Home,
     Search,
     MyCart,
     MyCard,
+    AddCard,
     Favourite,
     Notification,
     AuthLayout,
@@ -53,5 +61,6 @@ export {
     SignIn,
     SignUp,
     OnBoarding,
-    FoodDetails
+    FoodDetails,
+    Checkout
 }

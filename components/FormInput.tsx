@@ -4,7 +4,9 @@ import { FONTS, SIZES, COLORS } from '../constants'
 
 interface FormInputInteface { 
   containerStyle: StyleProp<ViewStyle>, 
+  inputContainerStyle?: StyleProp<ViewStyle>,
   label: string, 
+  value?: string,
   inputStyle: StyleProp<TextStyle>, 
   placeholder: string,
   prependComponent: JSX.Element, 
@@ -51,11 +53,14 @@ interface FormInputInteface {
   | 'off'
   | undefined,
   autoCapitalize: "none" | "sentences" | "words" | "characters" | undefined,
-  errorMsg: string
+  errorMsg: string,
+  maxLength?: number
 }
 
 const FormInput = ({ 
   containerStyle, 
+  inputContainerStyle,
+  value="",
   label, 
   inputStyle, 
   placeholder,
@@ -66,7 +71,8 @@ const FormInput = ({
   keyboardType="default",
   autoComplete="off",
   autoCapitalize="none",
-  errorMsg=""
+  errorMsg="",
+  maxLength
 }: FormInputInteface) => {
   return (
     <View
@@ -100,14 +106,14 @@ const FormInput = ({
 
       {/* Text Input */}
       <View
-        style={{
+        style={[{
           flexDirection: 'row',
-          height: 55,
+          height: SIZES.height > 800 ? 55 : 55,
           paddingHorizontal: SIZES.padding,
-          marginTop: SIZES.base,
+          marginTop: SIZES.height > 800 ? SIZES.base : 0,
           borderRadius: SIZES.radius,
           backgroundColor: COLORS.lightGray2
-        }}
+        }, inputContainerStyle]}
       >
         {prependComponent}
 
@@ -115,12 +121,14 @@ const FormInput = ({
           style={[{
             flex: 1,
           }, inputStyle]}
+          value={value}
           placeholder={placeholder}
           placeholderTextColor={COLORS.gray}
           secureTextEntry={secureTextEntry}
           keyboardType={keyboardType}
           autoComplete={autoComplete}
           autoCapitalize={autoCapitalize}
+          maxLength={maxLength}
           onChangeText={(text) => onChange(text)}
         />
 
