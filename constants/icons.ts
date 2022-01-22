@@ -7,6 +7,7 @@ const cart = require("../assets/icons/cart.png")
 const clock = require("../assets/icons/clock.png")
 const delete_icon = require("../assets/icons/delete.png")
 const dollar = require("../assets/icons/dollar.png")
+const discount = require("../assets/icons/discount.png")
 const eye = require("../assets/icons/eye.png")
 const eye_close = require("../assets/icons/eye_close.png")
 const menu = require("../assets/icons/menu.png")
@@ -25,6 +26,8 @@ const love = require("../assets/icons/love.png")
 const calories = require("../assets/icons/calories.png")
 const home = require("../assets/icons/home.png")
 const location = require("../assets/icons/location.png")
+const location1 = require("../assets/icons/location1.png")
+const location_pin = require("../assets/icons/location_pin.png")
 const logout = require("../assets/icons/logout.png")
 const notification = require("../assets/icons/notification.png")
 const paypal = require("../assets/icons/paypal.png")
@@ -47,6 +50,7 @@ export default {
     correct,
     cart,
     clock,
+    discount,
     delete_icon,
     dollar,
     eye,
@@ -67,6 +71,8 @@ export default {
     calories,
     home,
     location,
+    location1,
+    location_pin,
     logout,
     minus,
     notification,

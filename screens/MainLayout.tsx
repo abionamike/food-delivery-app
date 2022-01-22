@@ -13,15 +13,12 @@ import {
     ViewStyle
 } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
-import { Home, Search, MyCart, Favourite, Notification } from '.';
+import { Home, Search, MyCart, Favourite, Notification, MyWallet } from '.';
 import { Header } from '../components';
 import { COLORS, FONTS, SIZES, dummyData, constants, icons } from '../constants';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { setSelectedTab } from '../redux/tab/tabSlice';
 import LinearGradient from 'react-native-linear-gradient';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../App';
-
 // type ProfileScreenNavigationProp = Main['navigation'];
 
 interface MainLayoutProps {
@@ -174,7 +171,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation }: MainLayoutProps) => {
             setSearchTabColor({ backgroundColor: COLORS.white });
         }
 
-        if(selectedTab === constants.screens.cart) {
+        if(selectedTab === constants.screens.my_wallet) {
             flatListRef.current?.scrollToIndex({
                 index: 2,
                 animated: false
@@ -267,6 +264,13 @@ const MainLayout = ({ drawerAnimationStyle, navigation }: MainLayoutProps) => {
             <View style={{ flex: 1 }}>
                 <FlatList 
                     ref={flatListRef}
+                    onScrollToIndexFailed={info => {
+                        const wait = new Promise(resolve => setTimeout(() => resolve, 500));
+
+                        wait.then(() => {
+                          flatListRef.current?.scrollToIndex({ index: info.index, animated: true });
+                        });
+                      }}
                     horizontal
                     scrollEnabled={false}
                     pagingEnabled
@@ -280,7 +284,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation }: MainLayoutProps) => {
                             <View style={{ height: SIZES.height, width: SIZES.width }}>
                                 {item.label === constants.screens.home && <Home navigation={navigation} />}
                                 {item.label === constants.screens.search && <Search />}
-                                {item.label === constants.screens.cart && <MyCart navigation={navigation} />}
+                                {item.label === constants.screens.my_wallet && <MyWallet />}
                                 {item.label === constants.screens.favourite && <Favourite />}
                                 {item.label === constants.screens.notification && <Notification />}
                             </View>
@@ -344,12 +348,12 @@ const MainLayout = ({ drawerAnimationStyle, navigation }: MainLayoutProps) => {
                         onPress={() => dispatch(setSelectedTab(constants.screens.search))}
                     />
                     <TabButton 
-                        label={constants.screens.cart}
-                        icon={icons.cart}
-                        isFocused={selectedTab === constants.screens.cart}
+                        label={constants.screens.my_wallet}
+                        icon={icons.wallet}
+                        isFocused={selectedTab === constants.screens.my_wallet}
                         outerContainerStyle={cartFlexStyle}
                         innerContainerStyle={cartTabColor}
-                        onPress={() => dispatch(setSelectedTab(constants.screens.cart))}
+                        onPress={() => dispatch(setSelectedTab(constants.screens.my_wallet))}
                     />
                     <TabButton 
                         label={constants.screens.favourite}

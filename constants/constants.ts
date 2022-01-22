@@ -43,7 +43,7 @@ const bottom_tabs = [
     },
     {
         id: 2,
-        label: screens.cart,
+        label: screens.my_wallet,
     },
     {
         id: 3,

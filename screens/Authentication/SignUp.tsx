@@ -48,6 +48,7 @@ const SignUp = ({ navigation }: Props) => {
                         label='Email'
                         keyboardType='email-address'
                         autoComplete='email'
+                        value={email}
                         onChange={(value) => {
                             // validate email
                             utils.validateEmail(value, setEmailErr)
@@ -78,6 +79,7 @@ const SignUp = ({ navigation }: Props) => {
                         containerStyle={{
                             marginTop: SIZES.radius
                         }}
+                        value={username}
                         onChange={(value) => setUsername(value)}
                         errorMsg={usernameErr}
                         appendComponent={<View
@@ -109,6 +111,7 @@ const SignUp = ({ navigation }: Props) => {
                         containerStyle={{
                             marginTop: SIZES.radius
                         }}
+                        value={password}
                         onChange={(value) => {
                             utils.validatePassword(value, setPasswordErr);
                             

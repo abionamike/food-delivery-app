@@ -45,6 +45,11 @@ import AddCard from "./Card/AddCard";
 // Checkout
 import Checkout from "./Cart/Checkout";
 
+// MyWallet
+import MyWallet from "./Wallet/MyWallet";
+
+// Success
+import Success from "./Cart/Success";
 
 export {
     MainLayout,
@@ -54,6 +59,7 @@ export {
     MyCard,
     AddCard,
     Favourite,
+    MyWallet,
     Notification,
     AuthLayout,
     ForgotPassword,
@@ -62,5 +68,6 @@ export {
     SignUp,
     OnBoarding,
     FoodDetails,
-    Checkout
+    Checkout,
+    Success
 }

@@ -43,6 +43,7 @@ const SignIn = ({ navigation }: Props) => {
                         label='Email'
                         keyboardType='email-address'
                         autoComplete='email'
+                        value={email}
                         onChange={(value) => {
                             // validate email
                             utils.validateEmail(value, setEmailErr)
@@ -75,6 +76,7 @@ const SignIn = ({ navigation }: Props) => {
                         containerStyle={{
                             marginTop: SIZES.radius
                         }}
+                        value={password}
                         onChange={(value) => setPassword(value)}
                         appendComponent={<TouchableOpacity
                             style={{

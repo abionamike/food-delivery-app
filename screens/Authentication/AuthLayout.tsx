@@ -39,7 +39,7 @@ const AuthLayout = ({ title, subTitle, titleContainerStyle, children }: AuthLayo
           resizeMode='contain' 
           style={{
             height: 100,
-            width: 200
+            width: 200,
           }}
         />
       </View>

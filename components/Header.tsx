@@ -12,22 +12,24 @@ interface HeaderProp {
 
 const Header = ({ containerStyle, title, titleStyle, leftComponent, rightComponent }: HeaderProp) => {
   return (
-    <View
-      style={[{ height: 60, flexDirection: 'row' }, containerStyle]}
-    >
-      {/* Left */}
-      {leftComponent}
-
-      {/* Title */}
-      <View 
-        style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+    <>
+      <View
+        style={[{ height: 60, flexDirection: 'row' }, containerStyle]}
       >
-        <Text style={[{ ...FONTS.h3 }, titleStyle]}>{title}</Text>
-      </View>
+        {/* Left */}
+        {leftComponent}
 
-      {/* Right */}
-      {rightComponent}
-    </View>
+        {/* Title */}
+        <View 
+          style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+        >
+          <Text style={[{ ...FONTS.h3 }, titleStyle]}>{title}</Text>
+        </View>
+
+        {/* Right */}
+        {rightComponent}
+      </View>
+    </>
   )
 }
 
