@@ -8,8 +8,6 @@ import { FONTS, SIZES, icons, dummyData, COLORS } from '../../constants';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'AddCard'>;
 
-KeyboardAwareScrollView
-
 const Checkout = ({ navigation, route }: Props) => {
   const { selectedCard: card } = route.params;
 

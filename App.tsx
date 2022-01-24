@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import CustomDrawer from "./navigation/CustomDrawer";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import { MyCart, FoodDetails, ForgotPassword, OnBoarding, Otp, SignIn, SignUp, MyCard, AddCard, Checkout, Success } from "./screens";
+import { MyCart, FoodDetails, ForgotPassword, OnBoarding, Otp, SignIn, SignUp, MyCard, AddCard, Checkout, Success, DeliveryStatus, Map } from "./screens";
 import { MenuListInterface } from "./screens/Home/Home";
 import { ItemProp } from "./screens/Card/MyCard";
 
@@ -16,12 +16,14 @@ export type RootStackParamList = {
     ForgotPassword: undefined;
     Otp: undefined;
     Home: undefined;
-    FoodDetails: { item: MenuListInterface };
+    FoodDetails: { item: MenuListInterface } | undefined;
     MyCart: undefined;
     MyCard: undefined;
     AddCard: { selectedCard: ItemProp };
     Checkout: { selectedCard: ItemProp };
     Success: undefined;
+    DeliveryStatus: undefined;
+    Map: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -87,6 +89,16 @@ const App = () => {
                     <Stack.Screen
                         name="Success"
                         component={Success}
+                        options={{ gestureEnabled: false }}
+                    />
+                    <Stack.Screen
+                        name="DeliveryStatus"
+                        component={DeliveryStatus}
+                        options={{ gestureEnabled: false }}
+                    />
+                    <Stack.Screen
+                        name="Map"
+                        component={Map}
                         options={{ gestureEnabled: false }}
                     />
                 </Stack.Navigator>

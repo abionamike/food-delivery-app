@@ -51,6 +51,13 @@ import MyWallet from "./Wallet/MyWallet";
 // Success
 import Success from "./Cart/Success";
 
+// DeliveryStatus
+import DeliveryStatus from "./Delivery/DeliveryStatus";
+
+// Map
+import Map from "./Delivery/Map";
+
+
 export {
     MainLayout,
     Home,
@@ -69,5 +76,7 @@ export {
     OnBoarding,
     FoodDetails,
     Checkout,
-    Success
+    Success,
+    DeliveryStatus,
+    Map
 }

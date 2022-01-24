@@ -8,7 +8,7 @@ import { FONTS, COLORS, SIZES, icons, images, dummyData } from '../../constants'
 type Props = NativeStackScreenProps<RootStackParamList, 'FoodDetails'>;
 
 const FoodDetails = ({ route, navigation }: Props) => {
-  const { item } = route.params;
+  const item = route.params?.item;
 
   const [foodItem, setFoodItem] = useState(item);
   const [selectedSize, setSelectedSize] = useState<null | number>(null);
@@ -83,25 +83,25 @@ const FoodDetails = ({ route, navigation }: Props) => {
                 style={{ width: 30, height: 30 }}
               />
 
-              <Text style={{ color: COLORS.darkGray2, ...FONTS.body4 }}>{foodItem.calories} calories</Text>
+              <Text style={{ color: COLORS.darkGray2, ...FONTS.body4 }}>{foodItem?.calories} calories</Text>
             </View>
 
             {/* Favorite */}
             <Image 
               source={icons.love}
-              style={{ width: 20, height: 20, tintColor: foodItem.isFavourite ? COLORS.primary : COLORS.gray }}
+              style={{ width: 20, height: 20, tintColor: foodItem?.isFavourite ? COLORS.primary : COLORS.gray }}
             />
           </View>
 
           {/* Food Image */}
-          <Image source={foodItem.image} resizeMode='contain' style={{ height: 170, width: '100%' }} />
+          <Image source={foodItem?.image} resizeMode='contain' style={{ height: 170, width: '100%' }} />
         </View>
 
         {/* Food Info */}
         <View style={{ marginTop: SIZES.padding }}>
           {/* Name & Description */}
-          <Text style={{ ...FONTS.h1 }}>{foodItem.name}</Text>
-          <Text style={{ marginTop: SIZES.base, color: COLORS.darkGray, textAlign: 'justify', ...FONTS.body3 }}>{foodItem.description}</Text>
+          <Text style={{ ...FONTS.h1 }}>{foodItem?.name}</Text>
+          <Text style={{ marginTop: SIZES.base, color: COLORS.darkGray, textAlign: 'justify', ...FONTS.body3 }}>{foodItem?.description}</Text>
         
           {/* Ratings, Duration & Shipping */}
           <View style={{ flexDirection: 'row', marginTop: SIZES.padding, }}>
